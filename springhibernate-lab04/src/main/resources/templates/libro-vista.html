@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="includes/header :: header"></head>
+<body class="body">
+<div class="container">
+    <div class="card">
+
+        <div class="card-header libro">
+            <h4 class="card-title" th:text="#{books.bookDetails}">Detalle del libro</h4>
+        </div>
+
+        <div class="card-body">
+            <div class="container">
+                    <div class="row justify-content-sm-start">
+                    <div class="col col-sm-3">ISBN:</div>
+                    <div class="col col-sm-auto">
+                        <span th:text="${libro.isbn}">1111</span>
+                    </div>
+                </div>
+                <div class="row justify-content-sm-start">
+                    <div class="col col-sm-3" th:text="#{books.title}">Título:</div>
+                    <div class="col col-sm-auto">
+                        <span th:text="${libro.titulo}">Rayuela</span>
+                    </div>
+                </div>
+                <div class="row justify-content-sm-start">
+                    <div class="col col-sm-3" th:text="#{books.synopsis}">Sinopsis:</div>
+                    <div class="col col-sm-9">
+                        <span th:text="${libro.sinopsis}">Sinopsis:</span>
+                    </div>
+                </div>
+                <div class="row justify-content-sm-start">
+                    <div class="col col-sm-3" th:text="#{books.precio}">Precio($ARG):</div>
+                    <div class="col col-sm-auto">
+                        <span th:text="${libro.precio}">$234.00:</span>
+                    </div>
+                </div>
+                <div class="row justify-content-sm-start">
+                    <div class="col col-sm-3" th:text="#{book.author}">Autor:</div>
+                    <div class="col col-sm-auto">
+                        <a th:text="${libro.autor.nombre + ' ' + libro.autor.apellido}">J.R.R. Tolkien</a>
+                    </div>
+                </div>
+            </div>
+
+            <p/>
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>

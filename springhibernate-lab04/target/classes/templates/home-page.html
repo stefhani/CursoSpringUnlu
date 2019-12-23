@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="includes/header :: header"></head>
+<body class="home">
+<div class="container" style="background-color: #cd9166;">
+    <div id="alert"  th:classappend="${clase}" th:text="${mensaje}" class="alert"  style="">
+    </div>
+    <div id="idiomas">
+        <a th:href="@{/i18n(lang=en)}" th:text="#{header.lang.eng}">EN</a>
+        <a th:href="@{/i18n(lang=es)}" th:text="#{header.lang.es}">ES</a>
+    </div>
+    <div class="encabezado" style="margin-bottom: 16px;">
+        <div class="media">
+            <img src="../../static/img/logo.jpg" width="100"
+                 th:src="@{img/logo.jpg}"/>
+            <div class="media-body">
+                <h5 class="mt-0"></h5>
+             </div>
+        </div>
+        <div class="buttom">
+            <div class="inicio">
+                <a class="btn btn-info"
+                   th:href="@{usuario/nuevo}" style="background: gray;" th:text="#{header.sign_in}">Registrar
+                </a>
+                <a id="login" th:text="#{header.login}" class="btn btn-info" style="background-color: #298ccf;color: white;">Login
+                </a>
+            </div>
+        </div>
+        <div class="dropdown-menu">
+            <button id="close" type="button" class="close" aria-label="Close">
+                <span  aria-hidden="true">&times;&nbsp;</span>
+            </button>
+            <form th:object="${usuarioLogin}" method="POST">
+                <div class="container">
+                    <div class="form-group">
+                        <label th:for="${#ids.next('email')}" th:text="#{header.email}" >Email</label>
+                        <input th:field="*{email}" type="email" class="form-control" placeholder="ej:paolo.gomez@gmail.com"
+                               th:errorclass="error"  required/>
+                        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:errorclass="error">Error
+                            con el
+                            email</p>
+                        <small class="form-text text-muted" th:text="#{error.email}">Ingresá el email.</small>
+                    </div>
+                    <div class="form-group">
+                        <label th:for="${#ids.next('password')}" th:text="#{header.password}">Password</label>
+                        <input th:field="*{password}" type="password" class="form-control" placeholder="********"
+                               th:errorclass="error"  required/>
+                        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:errorclass="error">Error
+                            con la password</p>
+                        <small class="form-text text-muted" th:text="#{error.password}">Ingresá el password.</small>
+                    </div>
+
+                </div>
+
+                <div class="container">
+                    <button class="btn btn-primary" th:text="#{header.login}">Inicio</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="busqueda" style="display:none">
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand"th:text="#{header.search}" >Busqueda</a>
+            <form th:object="${libroBusqueda}" method="post" class="form-inline" style="position: absolute; right: 233px;">
+                <input class="form-control mr-sm-2" type="search"  th:placeholder="#{books.search}" placeholder="Titulo, Autor, ISBN ..." aria-label="" style="width: 550px;">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" th:text="#{header.search}">Search</button>
+            </form>
+        </nav>
+    </div>
+
+    <p th:if="${#lists.isEmpty(librosMasRecientes)}">No existen libros recientes.</p>
+    <div  id="cards" class="container" style="background-image: url(https://www.planetadelibros.com.ar/img/nadal/fondo-estrellas-latam.jpg);">
+        <!--cards-->
+        <div  class="row">
+            <div th:each ="libros:${librosMasRecientes}" class="col-3 ">
+                <div id="books" class="card" >
+                    <img id="imgBook" class="card-img-top" th:src="@{img/{image}(image=${libros.isbn+'.jpg'})}"  src="../../static/img/logo.jpg" alt="Card image"/>
+                    <div class="card-body">
+                        <h5 th:text="${libros.titulo}" class="card-title">Card title</h5>
+                        <p th:text="${'Precio $:'+ libros.precio}" class="card-text" style="margin: 0;">$345.00</p>
+                        <p th:text="${'De: '+ libros.autor.nombre}" class="card-text" style="margin: 0;">Pablo Aldomar</p>
+                        <a  th:href="@{'/home/libro/ver/' + ${libros.id}}" class="btn btn-link" style="text-decoration: underline;color: blue;" th:text="#{common.view}" >Ver</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="includes/footer :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3c06bbf0-bcc1-4dfb-ad0c-d3d6d1ed8fd3" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit4 Test Class" />
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1UDHzjpOqBRuSLaUYqKateVGVcX" />
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Groovy JUnit" value="com.curso.spring.tp.libreria.entity.AuditableBaseEntity" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/static/img" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.curso.spring.tp.libreria.service" />
+      <recent name="com.curso.spring.tp.libreria" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\scadillo\Desktop\stecad\Unlu\CursoSpring-Unlu\Clase4\springhibernate-lab04\src\main\resources\img\home" />
+      <recent name="C:\Users\scadillo\Desktop\stecad\Unlu\CursoSpring-Unlu\Clase4\springhibernate-lab04\src\test\resources" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+      <recent name="com.curso.spring.tp.libreria.entity.AuditableBaseEntity" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.curso.spring.tp.libreria.web" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\scadillo\Desktop\stecad\Unlu\CursoSpring-Unlu\Clase4\springhibernate-lab04\src\main\resources\static\img" />
+      <recent name="C:\Users\scadillo\Desktop\stecad\Unlu\CursoSpring-Unlu\Clase4\springhibernate-lab04\src\main\resources" />
+      <recent name="C:\Users\scadillo\Desktop\stecad\Unlu\CursoSpring-Unlu\Clase4\springhibernate-lab04\src\main\resources\templates" />
+      <recent name="C:\Users\scadillo\Desktop\stecad\Unlu\CursoSpring-Unlu\Clase4\springhibernate-lab04\src\main\resources\static\img\books" />
+      <recent name="C:\Users\scadillo\Desktop\stecad\Unlu\CursoSpring-Unlu\Clase4\springhibernate-lab04\src\main\resources\static\images" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.LibreriaApp">
+    <configuration name="LibreriaApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.curso.spring.tp.libreria.LibreriaApp" />
+      <module name="TPFinal" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LibroServiceImplTest.insertarLibro" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TPFinal" />
+      <option name="PACKAGE_NAME" value="com.curso.spring.tp.libreria.service" />
+      <option name="MAIN_CLASS_NAME" value="com.curso.spring.tp.libreria.service.LibroServiceImplTest" />
+      <option name="METHOD_NAME" value="insertarLibro" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LibroServiceImplTest.listarMasRecientesLibros" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TPFinal" />
+      <option name="PACKAGE_NAME" value="com.curso.spring.tp.libreria.service" />
+      <option name="MAIN_CLASS_NAME" value="com.curso.spring.tp.libreria.service.LibroServiceImplTest" />
+      <option name="METHOD_NAME" value="listarMasRecientesLibros" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UsuarioServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TPFinal" />
+      <option name="PACKAGE_NAME" value="com.curso.spring.tp.libreria.service" />
+      <option name="MAIN_CLASS_NAME" value="com.curso.spring.tp.libreria.service.UsuarioServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UsuarioServiceImplTest.insertarUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TPFinal" />
+      <option name="PACKAGE_NAME" value="com.curso.spring.tp.libreria.service" />
+      <option name="MAIN_CLASS_NAME" value="com.curso.spring.tp.libreria.service.UsuarioServiceImplTest" />
+      <option name="METHOD_NAME" value="insertarUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.LibreriaApp" />
+        <item itemvalue="JUnit.UsuarioServiceImplTest" />
+        <item itemvalue="JUnit.UsuarioServiceImplTest.insertarUser" />
+        <item itemvalue="JUnit.LibroServiceImplTest.insertarLibro" />
+        <item itemvalue="JUnit.LibroServiceImplTest.listarMasRecientesLibros" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task id="Default" summary="Default task">
+      <changelist id="3c06bbf0-bcc1-4dfb-ad0c-d3d6d1ed8fd3" name="Default Changelist" comment="" />
+      <created>1574884509521</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1575501052799</updated>
+    </task>
+    <task id="LOCAL-00001" summary="TestAutoRepository">
+      <created>1575501049630</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1575502228221</updated>
+    </task>
+    <task active="true" id="LOCAL-00002" summary="prueba">
+      <created>1575502224131</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1575502228231</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <option name="searchClosedTasks" value="true" />
+    <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.js" />
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
+  </component>
+</project>

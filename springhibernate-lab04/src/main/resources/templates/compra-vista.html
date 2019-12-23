@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="includes/header :: header"></head>
+<body class="body">
+<div class="container">
+    <div class="card">
+        <div id="alert"  th:classappend="${clase}" th:text="${mensaje}" class="alert" style="margin: 0;">
+        </div>
+        <div id="idiomas">
+            <a th:href="@{/i18n(lang=en)}" th:text="#{header.lang.eng}">EN</a>
+            <a th:href="@{/i18n(lang=es)}" th:text="#{header.lang.es}">ES</a>
+        </div>
+        <div class="card-header">
+            <h1 class="card-title">Eliminar</h1>
+        </div>
+
+        <div class="card-body">
+            <p th:if="${#lists.isEmpty(listadoCompra)}"
+               >No existen Compras.</p>
+            <table class="table table-striped table-hover" th:if="${not #lists.isEmpty(listadoCompra)}">
+                <thead>
+                <tr>
+                    <th class="active" th:text="#{user.numC}">N° Compra</th>
+                    <th class="active" th:text="#{user.book}">Libro</th>
+                    <th class="active" th:text="#{user.quantity}">Cantidad</th>
+                    <th class="active" th:text="#{user.price}">Precio (ARG $)</th>
+                    <th class="active">Total (ARG $)</th>
+                    <th class="active" th:text="#{user.status}">Estado</th>
+                    <th class="active" th:text="#{user.dateP}">FechaPedido</th>
+                    <th class="active" th:text="#{user.dateL}">FechaLlegada</th>
+                </tr>
+                </thead>
+
+                <tr th:each="compra : ${listadoCompra}">
+                    <td th:text="${compra.id}">12</td>
+                    <td th:each="librocc : ${compra.libro}" th:text="${librocc.titulo}">Natacha</td>
+                    <td th:each="librocc : ${compra.libro}" th:text="${librocc.precio}">190.00</td>
+                    <td th:text="${compra.cantidad}">3</td>
+                    <td th:text="${compra.montoTotal}">560</td>
+                    <td th:text="(${compra.estado}==0? 'Pedido': (${compra.estado}==1? 'a Retirar' : 'Entregado'))">Pedido</td>
+                    <td th:text="${#dates.format(compra.fechaPedido)}">12-09-20</td>
+                    <td th:text="${#dates.format(compra.fechaLlegada)}">12-09-20</td>
+                    <td>
+                        <a th:href="@{'/compra/' + ${compra.id} + '/borrar'}" th:text="#{common.delete}">Borrar</a>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

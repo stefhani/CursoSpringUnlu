@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="includes/header :: header"></head>
+<body class="body">
+<div class="container">
+    <div class="card">
+        <div id="alert"  th:classappend="${clase}" th:text="${mensaje}" class="alert" style="margin: 0;">
+        </div>
+        <div id="idiomas">
+            <a th:href="@{/i18n(lang=en)}" th:text="#{header.lang.eng}">EN</a>
+            <a th:href="@{/i18n(lang=es)}" th:text="#{header.lang.es}">ES</a>
+        </div>
+        <div class="card-header">
+            <h4 class="card-title" >Eliminar:</h4>
+        </div>
+        <div class="card-body">
+            <div class="container">
+                <div class="row justify-content-sm-start">
+                    <div class="col col-sm-3">N° compra</div>
+                    <div class="col col-sm-auto">
+                        <span  th:text="${compra.id}">1111</span>
+                    </div>
+                </div>
+                <div class="row justify-content-sm-start">
+                    <div class="col col-sm-3" >Estado</div>
+                    <div class="col col-sm-auto">
+                        <span th:text="(${compra.estado}==0? 'Pedido': (${compra.estado}==1? 'a Retirar' : 'Entregado'))">pedido</span>
+                    </div>
+                </div>
+                <div class="row justify-content-sm-start">
+                    <div class="col col-sm-3" >Libro</div>
+                    <div class="col col-sm-auto">
+                        <span th:each="librocc : ${compra.libro}" th:text="${librocc.titulo}">Jueves 17 de Agosto de 2017</span>
+                    </div>
+                </div>
+                <div class="row justify-content-sm-start">
+                    <div class="col col-sm-3" >Precio (ARG $)</div>
+                    <div class="col col-sm-auto">
+                        <span th:each="librocc : ${compra.libro}" th:text="${librocc.precio}">Jueves 17 de Agosto de 2017</span>
+                    </div>
+                </div>
+                <div class="row justify-content-sm-start">
+                    <div class="col col-sm-3" >Cantidad</div>
+                    <div class="col col-sm-auto">
+                        <span th:text="${compra.cantidad}">Jueves 17 de Agosto de 2017</span>
+                    </div>
+                </div>
+                <div class="row justify-content-sm-start">
+                    <div class="col col-sm-3" >Total (ARG $)</div>
+                    <div class="col col-sm-auto">
+                        <span th:text="${compra.montoTotal}">Jueves 17 de Agosto de 2017</span>
+                    </div>
+                </div>
+                <div class="row justify-content-sm-start">
+                    <div class="col col-sm-3" >Fecha Pedido</div>
+                    <div class="col col-sm-auto">
+                        <span  th:text="${#dates.format(compra.fechaPedido)}">Jueves 17 de Agosto de 2017</span>
+                    </div>
+                </div>
+                <div class="row justify-content-sm-start">
+                    <div class="col col-sm-3" >Fecha Llegada</div>
+                    <div class="col col-sm-auto">
+                        <span  th:text="${#dates.format(compra.fechaLlegada)}">Jueves 17 de Agosto de 2017</span>
+                    </div>
+                </div>
+            </div>
+
+            <p></p>
+            <p><strong >Está seguro?</strong></p>
+
+            <div class="container">
+                <form method="post">
+                    <a class="btn btn-primary"
+                       th:href="@{'/compra/' + ${compra.id} +'/usuario/'+${usuarioId}+'/borrar'}" >Si
+                    </a>
+                    <a class="btn btn-danger"
+                       th:href="@{'/usuario/' + ${usuarioId}}" >No
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

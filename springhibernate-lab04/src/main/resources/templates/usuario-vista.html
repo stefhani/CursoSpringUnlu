@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="includes/header :: header"></head>
+<body class="body">
+<div class="container">
+    <div class="card">
+        <div id="idiomas">
+            <a th:href="@{/i18n(lang=en)}" th:text="#{header.lang.eng}">EN</a>
+            <a th:href="@{/i18n(lang=es)}" th:text="#{header.lang.es}">ES</a>
+        </div>
+        <div class="card-header detalle">
+            <h4 class="card-title" th:text="#{user.detail}">Detalle del Usuario</h4>
+        </div>
+
+        <div class="card-body">
+            <div class="container">
+                <div class="row justify-content-sm-start">
+                    <div class="col col-sm-3" th:text="#{user.surname}">Apellido</div>
+                    <div class="col col-sm-auto">
+                        <span th:text="${usuario.apellido}">Tolkien</span>
+                    </div>
+                </div>
+                <div class="row justify-content-sm-start">
+                    <div class="col col-sm-3" th:text="#{user.name}">Nombre</div>
+                    <div class="col col-sm-auto">
+                        <span th:text="${usuario.nombre}">J.R.R.</span>
+                    </div>
+                </div>
+                <div class="row justify-content-sm-start">
+                    <div class="col col-sm-3">Dni</div>
+                    <div class="col col-sm-auto">
+                        <span th:text="${usuario.dni}">19029302</span>
+                    </div>
+                </div>
+                <div class="row justify-content-sm-start">
+                    <div class="col col-sm-3" th:text="#{user.phone}">Tel</div>
+                    <div class="col col-sm-auto">
+                        <span th:text="${usuario.telefono}">11-23456743</span>
+                    </div>
+                </div>
+                <div class="row justify-content-sm-start">
+                    <div class="col col-sm-3" th:text="#{user.email}">Email</div>
+                    <div class="col col-sm-auto">
+                        <span th:text="${usuario.email}">paolo.ruben@gmail.com</span>
+                    </div>
+                </div>
+
+                <div class="row justify-content-sm-start">
+                    <div class="col col-sm-3" th:text="#{header.password}">Password</div>
+                    <div class="col col-sm-auto">
+                        <span th:text="${usuario.password}">******</span>
+                    </div>
+                </div>
+
+            </div>
+            <p/>
+
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

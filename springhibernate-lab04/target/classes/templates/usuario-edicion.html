@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="includes/header :: header"></head>
+<body class="body">
+<div class="container">
+    <div class="card">
+        <div id="alert"  th:classappend="${clase}" th:text="${mensaje}" class="alert" style="margin: 0;">
+        </div>
+        <div id="idiomas">
+            <a th:href="@{/i18n(lang=en)}" th:text="#{header.lang.eng}">EN</a>
+            <a th:href="@{/i18n(lang=es)}" th:text="#{header.lang.es}">ES</a>
+        </div>
+        <div class="card-header" style="font-family: monospace;background-color: rgba(245, 150, 33, 0.76)!important;">
+            <h4 class="card-title" th:text="#{header.sign_in}">Registro</h4>
+        </div>
+
+        <div class="card-body">
+            <form th:object="${usuarioForm}" method="post">
+                <div class="container">
+                    <div class="form-group">
+                        <label th:for="${#ids.next('apellido')}" th:text="#{user.surname}">Apellido</label>
+                        <input th:field="*{apellido}" type="text" class="form-control" placeholder="Cosme"
+                               th:errorclass="error" required/>
+                        <p th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}" th:errorclass="error">Error
+                            con el
+                            apellido</p>
+                        <small class="form-text text-muted" th:text="#{msj.surname}">Ingresá el apellido.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label th:for="${#ids.next('nombre')}" th:text="#{user.name}">Nombre</label>
+                        <input th:field="*{nombre}" type="text" class="form-control" placeholder="Ej: Fulanito"
+                               th:errorclass="error" required/>
+                        <p th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" th:errorclass="error">Error con
+                            el
+                            nombre</p>
+                        <small class="form-text text-muted" th:text="#{msj.name}">Ingresá el nombre.</small>
+                    </div>
+                    <div class="form-group">
+                        <label th:for="${#ids.next('telefono')}" th:text="#{user.phone}">Telefono</label>
+                        <input th:field="*{telefono}" type="text" class="form-control" placeholder="Ej: 4906785 o 1127292028"
+                               th:errorclass="error" required/>
+                        <p th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}" th:errorclass="error">Error con
+                            el
+                            telefono</p>
+                        <small class="form-text text-muted" th:text="#{msj.phone}">Ingresá el N° Telefono o Celular.</small>
+                    </div>
+                    <div class="form-group">
+                        <label th:for="${#ids.next('email')}" th:text="#{user.email}">Email</label>
+                        <input th:field="*{email}" type="text" class="form-control" placeholder="Ej : usuario@gmail.com"
+                               th:errorclass="error" required/>
+                        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:errorclass="error">Error con
+                            el
+                            email</p>
+                        <small class="form-text text-muted" th:text="#{msj.email}">Ingresá el Email.</small>
+                    </div>
+                    <div class="form-group">
+                        <label th:for="${#ids.next('dni')}">Dni</label>
+                        <input th:field="*{dni}" type="text" class="form-control" placeholder="Ej:9456734"
+                               th:errorclass="error" required/>
+                        <p th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}" th:errorclass="error">Error con
+                            el
+                            dni</p>
+                        <small class="form-text text-muted" th:text="#{msj.dni}">Ingresá el dni.</small>
+                    </div>
+                    <div class="form-group">
+                        <label th:for="${#ids.next('password')}">Password</label>
+                        <input th:field="*{password}" type="text" class="form-control" placeholder="Ej:*****"
+                               th:errorclass="error" required/>
+                        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:errorclass="error">Error con
+                            el
+                            dni</p>
+                        <small class="form-text text-muted" th:text="#{msj.pwd}">Ingresá el password.</small>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <button class="btn btn-primary" th:text="#{common.save}">Guardar</button>
+                    <a th:href="@{volver/}" class="btn btn-danger" th:text="#{common.cancel}">Cancelar</a>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

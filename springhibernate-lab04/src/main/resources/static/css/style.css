@@ -1,0 +1,72 @@
+.encabezado{
+  display: flex;
+}
+.media{
+    width: 900px;
+}
+.buttom{
+    width: 220px;
+    position: relative;
+}
+.inicio{
+    position: absolute;
+    top: 30px;
+    right: 5px;
+ }
+.dropdown-menu{
+   top:16%!Important;
+   left: 490px!Important;
+
+}
+
+.col-3{
+    max-width: 19%!Important;
+    margin-top: 38px;
+
+}
+#cards > .row > .col-3 > .card > .btn btn-link{
+    color: blue;
+    text-decoration: underline;
+}
+.justify-content-sm-start {
+    padding-top: 4px;
+}
+#books{
+width: 9rem;
+height: 19rem;
+}
+
+#imgBook{
+height: 150px;
+}
+#idiomas{
+   position: absolute;
+    right: 99px;
+}
+#idiomas > a {
+    text-decoration: underline;
+    color: black;
+}
+#compra{
+ display: flex;
+}
+#compra >.form-group{
+    margin-right: 4px;
+}
+
+.micuenta{
+    background-color: rgba(91, 197, 64, 0.74)!Important;
+}
+
+.body{
+background-color: #aeb3adb3!Important;
+}
+.detalle{
+    background-color: #007bff78!Important;
+    font-family: monospace;
+}
+.libro{
+   background-color: rgba(228, 208, 64, 0.87)!Important;
+   font-family: monospace;
+}
+

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="includes/header :: header"></head>
+<body class="body">
+<div class="container">
+    <div class="card">
+        <div id="alert"  th:classappend="${clase}" th:text="${mensaje}" class="alert" style="margin: 0;">
+        </div>
+        <div id="idiomas">
+            <a th:href="@{/i18n(lang=en)}" th:text="#{header.lang.eng}">EN</a>
+            <a th:href="@{/i18n(lang=es)}" th:text="#{header.lang.es}">ES</a>
+        </div>
+        <div class="card-header micuenta">
+            <h4 class="card-title"  th:text="#{user.account}">Mi cuenta:</h4>
+        </div>
+
+        <div class="card-body">
+            <div class="container">
+                <div class="row justify-content-sm-start">
+                    <div class="col col-sm-3"  th:text="#{user.surname}">Apellido</div>
+                    <div class="col col-sm-auto">
+                        <span th:text="${usuario.apellido}">Little</span>
+                    </div>
+                </div>
+                <div class="row justify-content-sm-start">
+                    <div class="col col-sm-3"  th:text="#{user.name}">Nombre</div>
+                    <div class="col col-sm-auto">
+                        <span th:text="${usuario.nombre}">Ruben</span>
+                    </div>
+                </div>
+                <div class="row justify-content-sm-start">
+                    <div class="col col-sm-3" th:text="#{user.phone}">Telefono</div>
+                    <div class="col col-sm-auto">
+                        <span th:text="${usuario.telefono}">1127292820</span>
+                    </div>
+                </div>
+                <div class="row justify-content-sm-start">
+                    <div class="col col-sm-3"  th:text="#{user.email}">Email</div>
+                    <div class="col col-sm-auto">
+                        <span th:text="${usuario.email}">ruben.little@gmail.com</span>
+                    </div>
+                </div>
+                <div class="row justify-content-sm-start">
+                    <div class="col col-sm-3" th:text="#{user.dni}">Dni</div>
+                    <div class="col col-sm-auto">
+                        <span th:text="${usuario.dni}">19239403</span>
+                    </div>
+                </div>
+            </div>
+            <p/>
+
+            <div class="container">
+                <a class="btn btn-primary"
+                   th:href="@{'/usuario/' + ${usuario.id} + '/editar'}" th:text="#{common.edit}">Editar
+                </a>
+                <a class="btn btn-outline-primary"
+                   th:href="@{'/usuario/ver/' + ${usuario.id}}">Info
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <div class="card">
+        <div class="card-header micuenta">
+            <h4 class="card-title"  th:text="#{user.shopping}">Mis Compras:</h4>
+        </div>
+
+        <div class="card-body">
+            <form th:object="${compraForm}" method="POST">
+                <div id="compra" class="container">
+                    <div class="form-group">
+                        <label for="select-libro" th:for="${#ids.next('libro')}" th:text="#{user.books}">Libro</label>
+                        <select id="select-libro" class="form-control" th:field="*{libro}"
+                                th:errorclass="error">
+                            <option value="" >Seleccionar</option>
+                            <option th:each="libro : ${librosMasRecientes}"
+                                    th:value="${libro.id}"
+                                    th:text="${libro.titulo}+' - '+${libro.autor.nombre + ' ' + libro.autor.apellido}"
+                                    th:selected="${libro.id} == ${compraForm.libro}"></option>
+                        </select>
+                        <small class="form-text text-muted" th:text="#{books.select}">Seleccioná el libro.</small>
+                    </div>
+                    <div class="form-group">
+                        <label  th:text="#{books.precio}">Precio $</label>
+                        <input id="precio"  type="number" class="form-control"  placeholder="0" readonly/>
+                    </div>
+                    <div class="form-group">
+                        <label th:for="${#ids.next('cantidad')}" th:text="#{user.quantity}">Cantidad</label>
+                        <input th:field="*{cantidad}" type="number" class="form-control" placeholder="0"
+                               th:errorclass="error" min="1" pattern="^[0-9]+" />
+                        <p th:if="${#fields.hasErrors('cantidad')}" th:errors="*{cantidad}" th:errorclass="error">Error con la cantidad</p>
+                        <small class="form-text text-muted"  th:text="#{msj.cantidad}">Ingresá cantidad.</small>
+                    </div>
+                    <div class="form-group">
+                        <label th:for="${#ids.next('montoTotal')}">Total (ARG $):</label>
+                        <input id="total" th:field="*{montoTotal}" type="number" class="form-control" placeholder="0"
+                               th:errorclass="error" readonly/>
+                        <p th:if="${#fields.hasErrors('montoTotal')}" th:errors="*{montoTotal}" th:errorclass="error">Error con la montoTotal</p>
+                    </div>
+
+                </div>
+
+                <div class="container">
+                    <button class="btn btn-primary" th:text="#{common.save}">Guardar</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="card">
+        <div class="card-header micuenta">
+            <h4 class="card-title" th:text="#{user.list}">Listados</h4>
+        </div>
+
+        <div class="card-body">
+            <p  th:if="${#lists.isEmpty(misCompras)}" th:text="#{error.compra}">No existen compras actuales.</p>
+            <table class="table table-striped table-hover" th:if="${not #lists.isEmpty(misCompras)}">
+                <thead>
+                <tr>
+                    <th class="active" th:text="#{user.numC}">N° Compra</th>
+                    <th class="active" th:text="#{user.book}">Libro</th>
+                    <th class="active" th:text="#{user.quantity}">Cantidad</th>
+                    <th class="active" th:text="#{user.price}">Precio (ARG $)</th>
+                    <th class="active">Total (ARG $)</th>
+                    <th class="active" th:text="#{user.status}">Estado</th>
+                    <th class="active" th:text="#{user.dateP}">FechaPedido</th>
+                    <th class="active" th:text="#{user.dateL}">FechaLlegada</th>
+                </tr>
+                </thead>
+                <tr th:each="compra : ${misCompras}">
+                    <td th:text="${compra.id}">12</td>
+                    <td th:each="librocc : ${compra.libro}" th:text="${librocc.titulo}">Natacha</td>
+                    <td th:each="librocc : ${compra.libro}" th:text="${librocc.precio}">190.00</td>
+                    <td th:text="${compra.cantidad}">3</td>
+                    <td th:text="${compra.montoTotal}">560</td>
+                    <td th:text="(${compra.estado}==0? 'Pedido': (${compra.estado}==1? 'a Retirar' : 'Entregado'))">Pedido</td>
+                    <td th:text="${#dates.format(compra.fechaPedido)}">12-09-20</td>
+                    <td th:text="${#dates.format(compra.fechaLlegada)}">12-09-20</td>
+
+                </tr>
+
+            </table>
+
+            <a th:href="@{volver/}" class="btn btn-dark" th:text="#{common.return}" style="color: white;">Volver</a>
+            <a th:href="@{'/compra/' + ${usuario.id}}"  class="btn btn-warning" th:text="#{common.delete}" style="color: white;">Modificar Compra </a>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
